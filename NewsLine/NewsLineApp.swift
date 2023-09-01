@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct NewsLineApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EmptyView()
+                .onAppear {
+                    _ = Assembler([AppAssembly()],
+                                  container: Container.shared)
+                    Container.shared.resolve(Router.self)!.configureNavigationController()
+                }
         }
     }
 }
