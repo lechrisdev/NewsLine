@@ -52,6 +52,7 @@ struct MainView: View {
                 ToolbarItem(placement: .navigationBarTrailing, content: {
                     Button(action: {
                         // ADD SORTING
+                        viewModel.router.showDetailViewScreen()
                     }, label: {
                         Image("Sorting")
                             .renderingMode(.template)

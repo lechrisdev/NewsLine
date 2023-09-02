@@ -29,7 +29,7 @@ class Router {
     
     func showDetailViewScreen() { //(user: String, avatarURL: String) {
         let vm = Container.shared.resolve(DetailViewModel.self)!//, arguments: user, avatarURL)!
-        let vc = UIHostingController(rootView: DetailView(viewModel: vm))
+        let vc = UIHostingController(rootView: DetailView())//(viewModel: vm))
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
