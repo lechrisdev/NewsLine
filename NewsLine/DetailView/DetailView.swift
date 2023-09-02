@@ -15,18 +15,17 @@ struct DetailView: View {
         ZStack(alignment: .topLeading) {
             Color("BackgroundColor").ignoresSafeArea()
             VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 0) {
-                    Spacer()
-                    Text("Title")
-                        .font(.system(size: 25, weight: .bold))
-                        .foregroundColor(.accentColor)
-                    Spacer()
-                }
-                .padding(.bottom, 10)
                 Rectangle()
                     .clipped()
                     .frame(height: 1)
                     .foregroundColor(.accentColor).opacity(0.3)
+            }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Title")
+                        .font(.system(size: 25, weight: .bold))
+                        .foregroundColor(.accentColor)
+                }
             }
         }
     }

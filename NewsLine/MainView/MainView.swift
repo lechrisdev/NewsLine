@@ -15,17 +15,6 @@ struct MainView: View {
         ZStack(alignment: .topLeading) {
             Color("BackgroundColor").ignoresSafeArea()
             VStack(alignment: .leading, spacing: 0) {
-                ZStack(alignment: .trailing) {
-                    // image = button
-                    HStack(spacing: 0) {
-                        Spacer()
-                        Text("Title")
-                            .font(.system(size: 25, weight: .bold))
-                            .foregroundColor(.accentColor)
-                        Spacer()
-                    }
-                }
-                .padding(.bottom, 10)
                 Rectangle()
                     .clipped()
                     .frame(height: 1)
@@ -34,22 +23,44 @@ struct MainView: View {
                     Spacer(minLength: 20)
                     Group {
                         PostCell(title: "Charlie Deets",
-                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
+                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty.",
                                  likes: 1957,
-                                 date: 21)
+                                 daysAgo: 21)
                         PostCell(title: "Charlie Deets",
-                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
-                                 likes: 1957,
-                                 date: 21)
+                                 description: "Greetings. I am writing. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty.Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
+                                 likes: 5,
+                                 daysAgo: 1)
                         PostCell(title: "Charlie Deets",
-                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
-                                 likes: 1957,
-                                 date: 21)
+                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty.",
+                                 likes: 999,
+                                 daysAgo: 15)
+                        PostCell(title: "Charlie Deets",
+                                 description: "Greetings. I am writing.",
+                                 likes: 55,
+                                 daysAgo: 3)
+                        
                     }
                     .padding(.horizontal, 20)
                 }
             }
-            .navigationBarHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Title")
+                        .font(.system(size: 25, weight: .bold))
+                        .foregroundColor(.accentColor)
+                }
+                ToolbarItem(placement: .navigationBarTrailing, content: {
+                    Button(action: {
+                        // ADD SORTING
+                    }, label: {
+                        Image("Sorting")
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.accentColor)
+                    })
+                })
+            }
         }
     }
 }

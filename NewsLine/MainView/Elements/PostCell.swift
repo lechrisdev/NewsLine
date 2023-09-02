@@ -12,9 +12,10 @@ struct PostCell: View {
     let title: String
     let description: String
     let likes: Int
-    let date: Int
-    @State private var expand: Bool = true
-//    @State private var isTextTruncated: Bool = false
+    let daysAgo: Int
+    
+    @State private var expand: Bool = false
+    @State private var isTextTruncated: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -23,12 +24,20 @@ struct PostCell: View {
                 .foregroundColor(.accentColor)
                 .padding(.bottom, 10)
             Text(description)
-                .lineLimit(expand ? nil : 2)
-            //                    .truncationMode(.tail)
                 .font(.system(size: 20, weight: .semibold))
                 .foregroundColor(.accentColor)
                 .opacity(0.5)
                 .padding(.bottom, 15)
+                .lineLimit(expand || !isTextTruncated ? nil : 2)
+                .background(
+                    GeometryReader { geometry in
+                        Color.clear
+                            .onAppear {
+                                let lineHeight = UIFont.systemFont(ofSize: 20).lineHeight
+                                isTextTruncated = geometry.size.height > 2 * lineHeight
+                            }
+                    }
+                )
             HStack(spacing: 0) {
                 Text("❤️")
                 Text(" \(String(likes))")
@@ -36,27 +45,30 @@ struct PostCell: View {
                     .foregroundColor(.accentColor)
                     .opacity(0.5)
                 Spacer()
-                Text("\(String(date)) days ago")
+                Text("\(String(daysAgo)) days ago")
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(.accentColor)
                     .opacity(0.5)
             }
             .padding(.bottom, 15)
-            ZStack(alignment: .center) {
-                RoundedRectangle(cornerRadius: 12)
-                    .frame(height: 50)
-                    .foregroundColor(.accentColor)
-                // кнопка, которой может и не быть
+            
+            if isTextTruncated {
                 Button(action: {
-                    expand.toggle()
+                    withAnimation {
+                        expand.toggle()
+                    }
                 }, label: {
                     Text(expand ? "Collapse" : "Expand")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(Color("BackgroundColor"))
                         .opacity(0.7)
                 })
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
+                .background(Color.accentColor)
+                .cornerRadius(12)
+                .padding(.bottom, 10)
             }
-            .padding(.bottom, 10)
         }
     }
 }
@@ -66,6 +78,6 @@ struct PostCell_Previews: PreviewProvider {
         PostCell(title: "Charlie Deets",
                  description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
                  likes: 1957,
-                 date: 21)
+                 daysAgo: 21)
     }
 }
