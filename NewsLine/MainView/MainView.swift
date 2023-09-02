@@ -22,37 +22,38 @@ struct MainView: View {
                 ScrollView {
                     Spacer(minLength: 20)
                     Group {
-                        PostCell(title: "Charlie Deets",
-                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty.",
-                                 likes: 1957,
-                                 daysAgo: 21)
-                        PostCell(title: "Charlie Deets",
-                                 description: "Greetings. I am writing. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty.Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty. Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
-                                 likes: 5,
-                                 daysAgo: 1)
-                        PostCell(title: "Charlie Deets",
-                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty.",
-                                 likes: 999,
-                                 daysAgo: 15)
-                        PostCell(title: "Charlie Deets",
-                                 description: "Greetings. I am writing.",
-                                 likes: 55,
-                                 daysAgo: 3)
-                        
+                        ForEach(Array(viewModel.posts.enumerated()), id: \.offset) { index, user in
+                            Button(action: {
+                                viewModel.router.showDetailViewScreen()
+                            }, label: {
+                                PostCell(id:            user.id,
+                                         title:         user.title,
+                                         description:   user.description,
+                                         likes:         user.likes,
+                                         daysAgo:       user.daysAgo)
+                            })
+                        }
+                        HStack(spacing: 0) {
+                            if viewModel.isLoading {
+                                Spacer()
+                                ProgressView()
+                                    .progressViewStyle(.circular)
+                                Spacer()
+                            }
+                        }
                     }
                     .padding(.horizontal, 20)
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Title")
+                    Text("NewsLine")
                         .font(.system(size: 25, weight: .bold))
                         .foregroundColor(.accentColor)
                 }
                 ToolbarItem(placement: .navigationBarTrailing, content: {
                     Button(action: {
                         // ADD SORTING
-                        viewModel.router.showDetailViewScreen()
                     }, label: {
                         Image("Sorting")
                             .renderingMode(.template)

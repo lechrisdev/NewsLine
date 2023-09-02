@@ -64,7 +64,7 @@ struct DetailView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text("Title")
+                        Text("NewsLine")
                             .font(.system(size: 25, weight: .bold))
                             .foregroundColor(.accentColor)
                     }

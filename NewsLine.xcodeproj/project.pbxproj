@@ -23,6 +23,11 @@
 		85F19C822AA21E81005842AA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C812AA21E81005842AA /* DetailViewModel.swift */; };
 		85F19C852AA22158005842AA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C842AA22158005842AA /* Repository.swift */; };
 		85F19C882AA22DE7005842AA /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C872AA22DE7005842AA /* PostCell.swift */; };
+		85F19C8A2AA3A77A005842AA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C892AA3A77A005842AA /* API.swift */; };
+		85F19C8D2AA3AC0A005842AA /* PostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C8C2AA3AC0A005842AA /* PostsResponse.swift */; };
+		85F19C902AA3AD45005842AA /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C8F2AA3AD45005842AA /* PostModel.swift */; };
+		85F19C922AA3B6EA005842AA /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C912AA3B6EA005842AA /* DataExtension.swift */; };
+		85F19C942AA3CF1C005842AA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C932AA3CF1C005842AA /* StringExtension.swift */; };
 		9505FC77C11570A759D193B0 /* Pods_NewsLineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05369058790CAE103F349175 /* Pods_NewsLineTests.framework */; };
 		C159AEA9B4F38A9E52000D90 /* Pods_NewsLine_NewsLineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5047B62173667187E090F9D5 /* Pods_NewsLine_NewsLineUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +71,11 @@
 		85F19C812AA21E81005842AA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		85F19C842AA22158005842AA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		85F19C872AA22DE7005842AA /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		85F19C892AA3A77A005842AA /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		85F19C8C2AA3AC0A005842AA /* PostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResponse.swift; sourceTree = "<group>"; };
+		85F19C8F2AA3AD45005842AA /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		85F19C912AA3B6EA005842AA /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		85F19C932AA3CF1C005842AA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C029A8DD266738AA05273827 /* Pods-NewsLineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsLineTests.release.xcconfig"; path = "Target Support Files/Pods-NewsLineTests/Pods-NewsLineTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD86DB2D9054CC26FE653C82 /* Pods_NewsLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B39E27CE703ECE1D9837B0 /* Pods-NewsLineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsLineTests.debug.xcconfig"; path = "Target Support Files/Pods-NewsLineTests/Pods-NewsLineTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +165,7 @@
 				85F19C732AA217AA005842AA /* Extensions */,
 				85F19C762AA218C0005842AA /* DI */,
 				85F19C832AA22128005842AA /* Network */,
+				85F19C8B2AA3AB90005842AA /* Models */,
 				85F19C7B2AA21C1B005842AA /* MainView */,
 				85F19C7E2AA21E44005842AA /* DetailView */,
 				85F19C4D2AA2115B005842AA /* Assets.xcassets */,
@@ -191,7 +202,9 @@
 		85F19C732AA217AA005842AA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				85F19C912AA3B6EA005842AA /* DataExtension.swift */,
 				85F19C742AA217C7005842AA /* ContainerExtension.swift */,
+				85F19C932AA3CF1C005842AA /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -207,6 +220,7 @@
 		85F19C7B2AA21C1B005842AA /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				85F19C8E2AA3AD2C005842AA /* Model */,
 				85F19C862AA22DCF005842AA /* Elements */,
 				85F19C4B2AA21159005842AA /* MainView.swift */,
 				85F19C7C2AA21CA2005842AA /* MainViewModel.swift */,
@@ -226,6 +240,7 @@
 		85F19C832AA22128005842AA /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				85F19C892AA3A77A005842AA /* API.swift */,
 				85F19C842AA22158005842AA /* Repository.swift */,
 			);
 			path = Network;
@@ -237,6 +252,22 @@
 				85F19C872AA22DE7005842AA /* PostCell.swift */,
 			);
 			path = Elements;
+			sourceTree = "<group>";
+		};
+		85F19C8B2AA3AB90005842AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85F19C8C2AA3AC0A005842AA /* PostsResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		85F19C8E2AA3AD2C005842AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85F19C8F2AA3AD45005842AA /* PostModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,14 +508,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F19C8A2AA3A77A005842AA /* API.swift in Sources */,
 				85F19C752AA217C7005842AA /* ContainerExtension.swift in Sources */,
+				85F19C942AA3CF1C005842AA /* StringExtension.swift in Sources */,
 				85F19C782AA218E0005842AA /* AppAssembly.swift in Sources */,
 				85F19C7A2AA21A63005842AA /* Router.swift in Sources */,
 				85F19C802AA21E73005842AA /* DetailView.swift in Sources */,
+				85F19C902AA3AD45005842AA /* PostModel.swift in Sources */,
 				85F19C4C2AA21159005842AA /* MainView.swift in Sources */,
+				85F19C8D2AA3AC0A005842AA /* PostsResponse.swift in Sources */,
 				85F19C4A2AA21159005842AA /* NewsLineApp.swift in Sources */,
 				85F19C7D2AA21CA2005842AA /* MainViewModel.swift in Sources */,
 				85F19C822AA21E81005842AA /* DetailViewModel.swift in Sources */,
+				85F19C922AA3B6EA005842AA /* DataExtension.swift in Sources */,
 				85F19C852AA22158005842AA /* Repository.swift in Sources */,
 				85F19C882AA22DE7005842AA /* PostCell.swift in Sources */,
 			);

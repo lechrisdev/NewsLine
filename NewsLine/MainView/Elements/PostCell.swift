@@ -9,10 +9,11 @@ import SwiftUI
 
 struct PostCell: View {
     
+    let id: Int
     let title: String
     let description: String
     let likes: Int
-    let daysAgo: Int
+    let daysAgo: String
     
     @State private var expand: Bool = false
     @State private var isTextTruncated: Bool = false
@@ -22,22 +23,26 @@ struct PostCell: View {
             Text(title)
                 .font(.system(size: 25, weight: .bold))
                 .foregroundColor(.accentColor)
+                .multilineTextAlignment(.leading)
                 .padding(.bottom, 10)
             Text(description)
                 .font(.system(size: 20, weight: .semibold))
                 .foregroundColor(.accentColor)
+                .multilineTextAlignment(.leading)
                 .opacity(0.5)
-                .padding(.bottom, 15)
+
                 .lineLimit(expand || !isTextTruncated ? nil : 2)
                 .background(
                     GeometryReader { geometry in
                         Color.clear
                             .onAppear {
-                                let lineHeight = UIFont.systemFont(ofSize: 20).lineHeight
+                                let lineHeight = UIFont.systemFont(ofSize: 21, weight: .semibold).lineHeight
                                 isTextTruncated = geometry.size.height > 2 * lineHeight
+
                             }
                     }
                 )
+                .padding(.bottom, 15)
             HStack(spacing: 0) {
                 Text("❤️")
                 Text(" \(String(likes))")
@@ -45,7 +50,7 @@ struct PostCell: View {
                     .foregroundColor(.accentColor)
                     .opacity(0.5)
                 Spacer()
-                Text("\(String(daysAgo)) days ago")
+                Text(daysAgo)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(.accentColor)
                     .opacity(0.5)
@@ -62,12 +67,13 @@ struct PostCell: View {
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(Color("BackgroundColor"))
                         .opacity(0.7)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color.accentColor)
+                        .cornerRadius(12)
+                        .padding(.bottom, 10)
                 })
-                .frame(maxWidth: .infinity)
-                .frame(height: 50)
-                .background(Color.accentColor)
-                .cornerRadius(12)
-                .padding(.bottom, 10)
+               
             }
         }
     }
@@ -75,9 +81,10 @@ struct PostCell: View {
 
 struct PostCell_Previews: PreviewProvider {
     static var previews: some View {
-        PostCell(title: "Charlie Deets",
-                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
+        PostCell(id: 12,
+                 title: "Charlie Deets",
+                 description: "Stay in a ryokan, a top choice of the Japanese for quite a long time.",
                  likes: 1957,
-                 daysAgo: 21)
+                 daysAgo: "21 days ago")
     }
 }

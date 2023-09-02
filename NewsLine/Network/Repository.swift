@@ -8,11 +8,19 @@
 import Foundation
 
 protocol RepositoryProtocol {
-//    func getUsers(lastUserId: Int, firstLoad: Bool) async -> [UserModel]
+    func getPosts() async -> [PostModel]
+  //func getUsers(lastUserId: Int, firstLoad: Bool) async -> [UserModel]
 //    func getUserRepositories(userName: String, page: Int, firstLoad: Bool) async -> [RepoModel]
 }
 
 class Repository: RepositoryProtocol {
+    
+    func getPosts() async -> [PostModel] {
+        guard let response = await API.sendRequestData(request: Requests.getPosts)?
+            .convertTo(PostsResponse.self)?.domain else { return [] }
+        return response
+    }
+    
     
 //    func getUsers(lastUserId: Int, firstLoad: Bool) async -> [UserModel] {
 //        let localData = persistence.loadUsers()
