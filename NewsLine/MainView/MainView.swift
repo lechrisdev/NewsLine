@@ -12,12 +12,44 @@ struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
-        VStack {
-            Button(action: {
-                viewModel.router.showDetailViewScreen()
-            }, label: {
-                Text("First Screen")
-            })
+        ZStack(alignment: .topLeading) {
+            Color("BackgroundColor").ignoresSafeArea()
+            VStack(alignment: .leading, spacing: 0) {
+                ZStack(alignment: .trailing) {
+                    // image = button
+                    HStack(spacing: 0) {
+                        Spacer()
+                        Text("Title")
+                            .font(.system(size: 25, weight: .bold))
+                            .foregroundColor(.accentColor)
+                        Spacer()
+                    }
+                }
+                .padding(.bottom, 10)
+                Rectangle()
+                    .clipped()
+                    .frame(height: 1)
+                    .foregroundColor(.accentColor).opacity(0.3)
+                ScrollView {
+                    Spacer(minLength: 20)
+                    Group {
+                        PostCell(title: "Charlie Deets",
+                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
+                                 likes: 1957,
+                                 date: 21)
+                        PostCell(title: "Charlie Deets",
+                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
+                                 likes: 1957,
+                                 date: 21)
+                        PostCell(title: "Charlie Deets",
+                                 description: "Greetings. I am writing because I discovered a way to improve the taste of decaffeinated and it's very tasty",
+                                 likes: 1957,
+                                 date: 21)
+                    }
+                    .padding(.horizontal, 20)
+                }
+            }
+            .navigationBarHidden(true)
         }
     }
 }
