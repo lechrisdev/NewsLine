@@ -16,8 +16,4 @@ pod 'Alamofire', '~> 5.6'
     # Pods for testing
   end
 
-  target 'NewsLineUITests' do
-    # Pods for testing
-  end
-
 end
