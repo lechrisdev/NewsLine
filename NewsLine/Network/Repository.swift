@@ -9,8 +9,7 @@ import Foundation
 
 protocol RepositoryProtocol {
     func getPosts() async -> [PostModel]
-  //func getUsers(lastUserId: Int, firstLoad: Bool) async -> [UserModel]
-//    func getUserRepositories(userName: String, page: Int, firstLoad: Bool) async -> [RepoModel]
+    func getDetails(id: Int) async -> DetailModel?
 }
 
 class Repository: RepositoryProtocol {
@@ -21,30 +20,9 @@ class Repository: RepositoryProtocol {
         return response
     }
     
-    
-//    func getUsers(lastUserId: Int, firstLoad: Bool) async -> [UserModel] {
-//        let localData = persistence.loadUsers()
-//        if !localData.isEmpty && firstLoad {
-//            return localData
-//        } else {
-//            guard let response = await API.sendRequestData(request: Requests.getUsers(lastUserId: lastUserId))?
-//                .convertTo(UsersResponse.self)?.domain else { return [] }
-//            persistence.saveUsers(users: response)
-//            return response
-//        }
-//    }
-//    
-//    func getUserRepositories(userName: String, page: Int, firstLoad: Bool) async -> [RepoModel] {
-//
-//        let localData = persistence.loadUserRepositories(ownerName: userName)
-//        if !localData.isEmpty && firstLoad {
-//            return localData
-//        } else {
-//            guard let response = await API.sendRequestData(request: Requests.getUserRepositories(userName: userName,
-//                                                                                                 page: page))?
-//                .convertTo(ReposResponse.self)?.domain else { return [] }
-//            persistence.saveUserRepositories(repos: response, userName: userName)
-//            return response
-//        }
-//    }
+    func getDetails(id: Int) async -> DetailModel? {
+        guard let response = await API.sendRequestData(request: Requests.getDetail(postId: id))?
+            .convertTo(DetailResponse.self)?.domain else { return nil }
+        return response
+    }
 }

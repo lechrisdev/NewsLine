@@ -22,15 +22,15 @@ struct MainView: View {
                 ScrollView {
                     Spacer(minLength: 20)
                     Group {
-                        ForEach(Array(viewModel.posts.enumerated()), id: \.offset) { index, user in
+                        ForEach(Array(viewModel.posts.enumerated()), id: \.offset) { index, post in
                             Button(action: {
-                                viewModel.router.showDetailViewScreen()
+                                viewModel.router.showDetailViewScreen(postId: post.id)
                             }, label: {
-                                PostCell(id:            user.id,
-                                         title:         user.title,
-                                         description:   user.description,
-                                         likes:         user.likes,
-                                         daysAgo:       user.daysAgo)
+                                PostCell(id:            post.id,
+                                         title:         post.title,
+                                         description:   post.description,
+                                         likes:         post.likes,
+                                         daysAgo:       post.daysAgo)
                             })
                         }
                         HStack(spacing: 0) {

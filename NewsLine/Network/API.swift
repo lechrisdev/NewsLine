@@ -11,7 +11,6 @@ import Alamofire
 class API {
     static func sendRequestData(request: EndPoint) async -> Data? {
         do {
-            
             return try await AF.request(request.path,
                                         method: request.httpMethod,
                                         parameters: request.parameters,
@@ -35,24 +34,20 @@ protocol EndPoint {
 
 enum Requests: EndPoint {
     case getPosts
-    case getUsers(lastUserId: Int)
-    //case getDetail
-    case getUserRepositories(userName: String, page: Int)
+    case getDetail(postId: Int)
 
     var path: String {
         switch self {
         case .getPosts:
             return "https://raw.githubusercontent.com/anton-natife/jsons/master/api/main.json"
-        case .getUsers:
-            return "https://api.github.com/users"
-        case let .getUserRepositories(userName, _):
-            return "https://api.github.com/users/\(userName)/repos"
+        case let .getDetail(postId):
+            return "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/\(postId).json"
         }
     }
 
     var httpMethod: Alamofire.HTTPMethod {
         switch self {
-        case .getPosts, .getUsers, .getUserRepositories:
+        case .getPosts, .getDetail:
             return .get
         }
     }
@@ -61,18 +56,8 @@ enum Requests: EndPoint {
         switch self {
         case .getPosts:
             return nil
-        case let .getUsers(lastUserId):
-            let parameters: [String: Encodable] = [
-                "per_page": 10,
-                "since": lastUserId
-            ]
-            return parameters
-        case let .getUserRepositories(_ , page):
-            let parameters: [String: Encodable] = [
-                "per_page": 10,
-                "page": page
-            ]
-            return parameters
+        case .getDetail:
+            return nil
         }
     }
 }

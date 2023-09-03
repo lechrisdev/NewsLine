@@ -32,12 +32,10 @@ class AppAssembly: Assembly {
             )
         })
         
-        container.register(DetailViewModel.self, factory: { container in //, user, avatarURL in
-            DetailViewModel(//repo: container.resolve(Repository.self)!,
-                            //router: container.resolve(Router.self)!,
-                            //user: user,
-                            //avatarURL: avatarURL
-            )
+        container.register(DetailViewModel.self, factory: { container, postId in
+            DetailViewModel(repo: container.resolve(Repository.self)!,
+                            router: container.resolve(Router.self)!,
+                            postId: postId)
         })
     }
 }
