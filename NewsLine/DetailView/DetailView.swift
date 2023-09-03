@@ -13,7 +13,7 @@ struct DetailView: View {
     @ObservedObject var viewModel: DetailViewModel
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
+        ZStack(alignment: .bottomLeading) {
             Color("BackgroundColor").ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
@@ -66,6 +66,18 @@ struct DetailView: View {
                     }
                 }
             }
+            ZStack(alignment: .center) {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(.secondary)
+                Text(viewModel.errorMessage)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.primary)
+                    .colorInvert()
+                    .padding(4)
+            }
+            .frame(height: 80)
+            .padding(20)
+            .offset(y: viewModel.showError ? 0 : 150)
         }
     }
 }

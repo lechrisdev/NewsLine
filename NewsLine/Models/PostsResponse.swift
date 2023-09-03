@@ -17,7 +17,7 @@ struct Post: Codable {
     let postID, timeshamp: Int
     let title, previewText: String
     let likesCount: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case postID = "postId"
         case timeshamp, title
@@ -31,10 +31,11 @@ extension PostsResponse {
         posts.map {
             let relativeDate = String.relativeDateString(fromTimestamp: Double($0.timeshamp))
             return PostModel(id: $0.postID,
-                      title: $0.title,
-                      description: $0.previewText,
-                      likes: $0.likesCount,
-                      daysAgo: relativeDate)
+                             title: $0.title,
+                             description: $0.previewText,
+                             likes: $0.likesCount,
+                             daysAgo: relativeDate,
+                             unixTime: $0.timeshamp)
         }
     }
 }

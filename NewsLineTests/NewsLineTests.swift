@@ -10,27 +10,36 @@ import XCTest
 
 final class NewsLineTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testSortingByRating() throws {
+        let viewModel = MainViewModel(repo: Repository(),
+                                      router: Router())
+        let posts: [PostModel] = [
+            PostModel(id: 101, title: "title1", description: "description1", likes: 100, daysAgo: String(3), unixTime: 1234567),
+            PostModel(id: 102, title: "title2", description: "description2", likes: 10, daysAgo: String(5), unixTime: 2345678),
+            PostModel(id: 103, title: "title3", description: "description3", likes: 1000, daysAgo: String(8), unixTime: 3456789)
+        ]
+        
+        viewModel.posts = posts
+        
+        XCTAssertTrue(viewModel.posts[0].likes == 100)
+        viewModel.sort(by: .rating)
+        XCTAssertTrue(viewModel.posts[0].likes == 1000)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testSortingByDate() throws {
+        let viewModel = MainViewModel(repo: Repository(),
+                                      router: Router())
+        let posts: [PostModel] = [
+            PostModel(id: 101, title: "title1", description: "description1", likes: 100, daysAgo: String(3), unixTime: 1234567),
+            PostModel(id: 102, title: "title2", description: "description2", likes: 10, daysAgo: String(5), unixTime: 2345678),
+            PostModel(id: 103, title: "title3", description: "description3", likes: 1000, daysAgo: String(8), unixTime: 3456789)
+        ]
+        
+        viewModel.posts = posts
+        
+        XCTAssertTrue(viewModel.posts[0].daysAgo == "3")
+        viewModel.sort(by: .date)
+        XCTAssertTrue(viewModel.posts[0].daysAgo == "8")
     }
 
 }

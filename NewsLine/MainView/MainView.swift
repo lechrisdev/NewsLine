@@ -10,9 +10,10 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var viewModel: MainViewModel
+    @State private var isShowingActionSheet = false
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
+        ZStack(alignment: .bottom) {
             Color("BackgroundColor").ignoresSafeArea()
             VStack(alignment: .leading, spacing: 0) {
                 Rectangle()
@@ -31,7 +32,7 @@ struct MainView: View {
                                          description:   post.description,
                                          likes:         post.likes,
                                          daysAgo:       post.daysAgo)
-                            })
+                            }).id(UUID())
                         }
                         HStack(spacing: 0) {
                             if viewModel.isLoading {
@@ -53,7 +54,8 @@ struct MainView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing, content: {
                     Button(action: {
-                        // ADD SORTING
+                        //viewModel.sort(by: .rating)
+                        isShowingActionSheet = true
                     }, label: {
                         Image("Sorting")
                             .renderingMode(.template)
@@ -61,8 +63,35 @@ struct MainView: View {
                             .frame(width: 20, height: 20)
                             .foregroundColor(.accentColor)
                     })
+                    .actionSheet(isPresented: $isShowingActionSheet) {
+                        ActionSheet(
+                            title: Text("Make a selection"),
+                            message: Text("descending sort"),
+                            buttons: [
+                                .default(Text("by date")) {
+                                    viewModel.sort(by: .date)
+                                },
+                                .default(Text("by rating")) {
+                                    viewModel.sort(by: .rating)
+                                },
+                                .cancel(), // Добавляет кнопку "Отмена"
+                            ]
+                        )
+                    }
                 })
             }
+            ZStack(alignment: .center) {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(.secondary)
+                Text(viewModel.errorMessage)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.primary)
+                    .colorInvert()
+                    .padding(4)
+            }
+            .frame(height: 80)
+            .padding(20)
+            .offset(y: viewModel.showError ? 0 : 150)
         }
     }
 }

@@ -8,20 +8,20 @@
 import Foundation
 
 protocol RepositoryProtocol {
-    func getPosts() async -> [PostModel]
-    func getDetails(id: Int) async -> DetailModel?
+    func getPosts() async throws -> [PostModel]
+    func getDetails(id: Int) async throws -> DetailModel?
 }
 
 class Repository: RepositoryProtocol {
     
-    func getPosts() async -> [PostModel] {
-        guard let response = await API.sendRequestData(request: Requests.getPosts)?
+    func getPosts() async throws -> [PostModel] {
+        guard let response = try await API.sendRequestData(request: Requests.getPosts)?
             .convertTo(PostsResponse.self)?.domain else { return [] }
         return response
     }
     
-    func getDetails(id: Int) async -> DetailModel? {
-        guard let response = await API.sendRequestData(request: Requests.getDetail(postId: id))?
+    func getDetails(id: Int) async throws -> DetailModel? {
+        guard let response = try await API.sendRequestData(request: Requests.getDetail(postId: id))?
             .convertTo(DetailResponse.self)?.domain else { return nil }
         return response
     }

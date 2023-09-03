@@ -13,8 +13,6 @@
 		85F19C4E2AA2115B005842AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F19C4D2AA2115B005842AA /* Assets.xcassets */; };
 		85F19C512AA2115B005842AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F19C502AA2115B005842AA /* Preview Assets.xcassets */; };
 		85F19C5B2AA2115C005842AA /* NewsLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C5A2AA2115C005842AA /* NewsLineTests.swift */; };
-		85F19C652AA2115C005842AA /* NewsLineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C642AA2115C005842AA /* NewsLineUITests.swift */; };
-		85F19C672AA2115C005842AA /* NewsLineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C662AA2115C005842AA /* NewsLineUITestsLaunchTests.swift */; };
 		85F19C752AA217C7005842AA /* ContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C742AA217C7005842AA /* ContainerExtension.swift */; };
 		85F19C782AA218E0005842AA /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C772AA218E0005842AA /* AppAssembly.swift */; };
 		85F19C7A2AA21A63005842AA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C792AA21A63005842AA /* Router.swift */; };
@@ -31,18 +29,10 @@
 		85F19C972AA3E75C005842AA /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C962AA3E75C005842AA /* DetailModel.swift */; };
 		85F19C992AA3E82B005842AA /* DetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F19C982AA3E82B005842AA /* DetailResponse.swift */; };
 		9505FC77C11570A759D193B0 /* Pods_NewsLineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05369058790CAE103F349175 /* Pods_NewsLineTests.framework */; };
-		C159AEA9B4F38A9E52000D90 /* Pods_NewsLine_NewsLineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5047B62173667187E090F9D5 /* Pods_NewsLine_NewsLineUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		85F19C572AA2115C005842AA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 85F19C3E2AA21159005842AA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 85F19C452AA21159005842AA;
-			remoteInfo = NewsLine;
-		};
-		85F19C612AA2115C005842AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 85F19C3E2AA21159005842AA /* Project object */;
 			proxyType = 1;
@@ -62,9 +52,6 @@
 		85F19C502AA2115B005842AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		85F19C562AA2115C005842AA /* NewsLineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsLineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F19C5A2AA2115C005842AA /* NewsLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLineTests.swift; sourceTree = "<group>"; };
-		85F19C602AA2115C005842AA /* NewsLineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsLineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		85F19C642AA2115C005842AA /* NewsLineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLineUITests.swift; sourceTree = "<group>"; };
-		85F19C662AA2115C005842AA /* NewsLineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLineUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		85F19C742AA217C7005842AA /* ContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerExtension.swift; sourceTree = "<group>"; };
 		85F19C772AA218E0005842AA /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		85F19C792AA21A63005842AA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -105,14 +92,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85F19C5D2AA2115C005842AA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C159AEA9B4F38A9E52000D90 /* Pods_NewsLine_NewsLineUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -144,7 +123,6 @@
 			children = (
 				85F19C482AA21159005842AA /* NewsLine */,
 				85F19C592AA2115C005842AA /* NewsLineTests */,
-				85F19C632AA2115C005842AA /* NewsLineUITests */,
 				85F19C472AA21159005842AA /* Products */,
 				6748E02130B4B26428714FE3 /* Pods */,
 				17D580B609541A214E12536D /* Frameworks */,
@@ -156,7 +134,6 @@
 			children = (
 				85F19C462AA21159005842AA /* NewsLine.app */,
 				85F19C562AA2115C005842AA /* NewsLineTests.xctest */,
-				85F19C602AA2115C005842AA /* NewsLineUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,15 +169,6 @@
 				85F19C5A2AA2115C005842AA /* NewsLineTests.swift */,
 			);
 			path = NewsLineTests;
-			sourceTree = "<group>";
-		};
-		85F19C632AA2115C005842AA /* NewsLineUITests */ = {
-			isa = PBXGroup;
-			children = (
-				85F19C642AA2115C005842AA /* NewsLineUITests.swift */,
-				85F19C662AA2115C005842AA /* NewsLineUITestsLaunchTests.swift */,
-			);
-			path = NewsLineUITests;
 			sourceTree = "<group>";
 		};
 		85F19C732AA217AA005842AA /* Extensions */ = {
@@ -325,26 +293,6 @@
 			productReference = 85F19C562AA2115C005842AA /* NewsLineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		85F19C5F2AA2115C005842AA /* NewsLineUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 85F19C702AA2115C005842AA /* Build configuration list for PBXNativeTarget "NewsLineUITests" */;
-			buildPhases = (
-				67169D542AD21C0A1768C8E7 /* [CP] Check Pods Manifest.lock */,
-				85F19C5C2AA2115C005842AA /* Sources */,
-				85F19C5D2AA2115C005842AA /* Frameworks */,
-				85F19C5E2AA2115C005842AA /* Resources */,
-				692B835A2AB9DD76A571D197 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				85F19C622AA2115C005842AA /* PBXTargetDependency */,
-			);
-			name = NewsLineUITests;
-			productName = NewsLineUITests;
-			productReference = 85F19C602AA2115C005842AA /* NewsLineUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -359,10 +307,6 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					85F19C552AA2115C005842AA = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 85F19C452AA21159005842AA;
-					};
-					85F19C5F2AA2115C005842AA = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = 85F19C452AA21159005842AA;
 					};
@@ -383,7 +327,6 @@
 			targets = (
 				85F19C452AA21159005842AA /* NewsLine */,
 				85F19C552AA2115C005842AA /* NewsLineTests */,
-				85F19C5F2AA2115C005842AA /* NewsLineUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -399,13 +342,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		85F19C542AA2115C005842AA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		85F19C5E2AA2115C005842AA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -435,45 +371,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		67169D542AD21C0A1768C8E7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NewsLine-NewsLineUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		692B835A2AB9DD76A571D197 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NewsLine-NewsLineUITests/Pods-NewsLine-NewsLineUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NewsLine-NewsLineUITests/Pods-NewsLine-NewsLineUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewsLine-NewsLineUITests/Pods-NewsLine-NewsLineUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		69EDDC435147C78C3CD090AE /* [CP] Embed Pods Frameworks */ = {
@@ -550,15 +447,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85F19C5C2AA2115C005842AA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				85F19C672AA2115C005842AA /* NewsLineUITestsLaunchTests.swift in Sources */,
-				85F19C652AA2115C005842AA /* NewsLineUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -566,11 +454,6 @@
 			isa = PBXTargetDependency;
 			target = 85F19C452AA21159005842AA /* NewsLine */;
 			targetProxy = 85F19C572AA2115C005842AA /* PBXContainerItemProxy */;
-		};
-		85F19C622AA2115C005842AA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 85F19C452AA21159005842AA /* NewsLine */;
-			targetProxy = 85F19C612AA2115C005842AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -799,44 +682,6 @@
 			};
 			name = Release;
 		};
-		85F19C712AA2115C005842AA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDE508A2991BDDFEB61D070B /* Pods-NewsLine-NewsLineUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NWJQXY2934;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ChristinaStepanok.NewsLineUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NewsLine;
-			};
-			name = Debug;
-		};
-		85F19C722AA2115C005842AA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F13DD4802EF399A71E30DCD4 /* Pods-NewsLine-NewsLineUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NWJQXY2934;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ChristinaStepanok.NewsLineUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NewsLine;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -863,15 +708,6 @@
 			buildConfigurations = (
 				85F19C6E2AA2115C005842AA /* Debug */,
 				85F19C6F2AA2115C005842AA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		85F19C702AA2115C005842AA /* Build configuration list for PBXNativeTarget "NewsLineUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				85F19C712AA2115C005842AA /* Debug */,
-				85F19C722AA2115C005842AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -37,8 +37,9 @@ struct PostCell: View {
                         Color.clear
                             .onAppear {
                                 let lineHeight = UIFont.systemFont(ofSize: 21, weight: .semibold).lineHeight
-                                isTextTruncated = geometry.size.height > 2 * lineHeight
-
+                                if geometry.size.height > 50.0 {
+                                    isTextTruncated = geometry.size.height > 2 * lineHeight
+                                }
                             }
                     }
                 )

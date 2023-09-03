@@ -9,20 +9,15 @@ import Foundation
 import Alamofire
 
 class API {
-    static func sendRequestData(request: EndPoint) async -> Data? {
-        do {
-            return try await AF.request(request.path,
-                                        method: request.httpMethod,
-                                        parameters: request.parameters,
-                                        encoding: URLEncoding.default,
-                                        headers: nil)
-                    .validate(statusCode: 200..<300)
-                    .serializingData()
-                    .value
-        } catch {
-            print("Error sending request: \(error)")
-            return nil
-        }
+    static func sendRequestData(request: EndPoint) async throws -> Data? {
+        return try await AF.request(request.path,
+                                    method: request.httpMethod,
+                                    parameters: request.parameters,
+                                    encoding: URLEncoding.default,
+                                    headers: nil)
+        .validate(statusCode: 200..<300)
+        .serializingData()
+        .value
     }
 }
 

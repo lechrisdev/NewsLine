@@ -13,6 +13,7 @@ struct PostModel: Hashable {
     let description: String
     let likes: Int
     let daysAgo: String
+    let unixTime: Int
 }
 
 
